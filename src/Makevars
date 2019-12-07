@@ -1,0 +1,7 @@
+CPPFILES = $(wildcard *.cpp Minimum-Cost-Perfect-Matching/*.cpp)
+
+SOURCES = $(CPPFILES)
+
+OBJECTS = $(CPPFILES:.cpp=.o)
+
+PKG_CXXFLAGS = -IMinimum-Cost-Perfect-Matching
