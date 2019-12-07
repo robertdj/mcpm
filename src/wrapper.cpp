@@ -52,7 +52,7 @@ pair< Graph, vector<double> > ReadWeightedGraph1(string filename)
 
 //' @export
 // [[Rcpp::export]]
-double minimum_cost_perfect_matching(String filename) {
+NumericMatrix minimum_cost_perfect_matching(String filename) {
     Graph G;
     vector<double> cost;
 
@@ -68,5 +68,17 @@ double minimum_cost_perfect_matching(String filename) {
 	list<int> matching = solution.first;
 	double obj = solution.second;
 
-    return obj;
+	NumericMatrix edges(5, 2);
+
+	int row_idx = 0;
+	for(list<int>::iterator it = matching.begin(); it != matching.end(); it++)
+	{
+		pair<int, int> e = G.GetEdge( *it );
+
+	    edges(row_idx, 0) = e.first;
+	    edges(row_idx, 1) = e.second;
+	    row_idx++;
+	}
+
+    return edges;
 }
