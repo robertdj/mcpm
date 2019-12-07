@@ -52,11 +52,10 @@ pair< Graph, vector<double> > ReadWeightedGraph1(string filename)
 
 //' @export
 // [[Rcpp::export]]
-NumericMatrix minimum_cost_perfect_matching(String filename) {
+Rcpp::List minimum_cost_perfect_matching(String filename) {
     Graph G;
     vector<double> cost;
 
-    // pair< Graph, vector<double> > p = CreateRandomGraph1();
     pair< Graph, vector<double> > p = ReadWeightedGraph1(filename);
 
 	G = p.first;
@@ -68,7 +67,7 @@ NumericMatrix minimum_cost_perfect_matching(String filename) {
 	list<int> matching = solution.first;
 	double obj = solution.second;
 
-	NumericMatrix edges(5, 2);
+	NumericMatrix edges(matching.size(), 2);
 
 	int row_idx = 0;
 	for(list<int>::iterator it = matching.begin(); it != matching.end(); it++)
@@ -80,5 +79,6 @@ NumericMatrix minimum_cost_perfect_matching(String filename) {
 	    row_idx++;
 	}
 
-    return edges;
+    return Rcpp::List::create(Rcpp::Named("cost") = obj,
+                              Rcpp::Named("edges") = edges);
 }
