@@ -1,14 +1,11 @@
 Package: mcpm
-Title: What the Package Does (One Line, Title Case)
+Title: Minimum Cost Perfect Matching
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+    person(given = "Robert", family = "Dahl Jacobsen", role = c("aut", "cre"), email = "git@dahl-jacobsen.dk")
+Description: A wrapper of algorithms for Maximum Cardinality Matching and Minimum Cost Perfect 
+    Matching Problems in General Graphs.
+License: GPL2
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -19,3 +16,5 @@ LinkingTo:
     Rcpp
 Imports: 
     Rcpp
+Suggests: 
+    testthat (>= 2.1.0)
