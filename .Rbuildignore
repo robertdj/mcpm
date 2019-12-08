@@ -1,2 +1,6 @@
 ^mcpm\.Rproj$
 ^\.Rproj\.user$
+\.o$
+\.so$
+\.dll$
+^\.travis\.yml$
