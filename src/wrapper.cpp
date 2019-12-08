@@ -21,7 +21,18 @@ pair< Graph, vector<double> > CreateGraph(int nvertices, int nedges, Rcpp::DataF
     return make_pair(G, cost);
 }
 
+
+//' Compute minimum cost perfect matching
+//'
+//' @param nvertices The number of vertices in the graph.
+//' @param nedges The number of edges in the graph.
+//' @param edges A dataframe representing the edges and their cost with columns `from`, `to` and
+//' `edges`.
+//'
+//' @return A list with entries `cost` (a number) and `edges` (a matrix).
+//'
 //' @export
+//'
 // [[Rcpp::export]]
 Rcpp::List minimum_cost_perfect_matching(int nvertices, int nedges, Rcpp::DataFrame edges) {
     pair< Graph, vector<double> > p = CreateGraph(nvertices, nedges, edges);
