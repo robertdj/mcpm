@@ -1,31 +1,15 @@
 test_that("Minimum cost perfect matching", {
     # Input from C++ repo example
-    graph <- matrix(
-        c(0, 1, 10,
-        0, 2, 4,
-        1, 2, 3,
-        1, 5, 2,
-        1, 6, 2,
-        2, 3, 1,
-        2, 4, 2,
-        3, 4, 5,
-        4, 6, 4,
-        4, 7, 1,
-        4, 8, 3,
-        5, 6, 1,
-        6, 7, 2,
-        7, 8, 3,
-        7, 9, 2,
-        8, 9, 1),
-        ncol = 3, byrow = TRUE
+    graph <- data.frame(
+        from = c(0, 0, 1, 1, 1, 2, 2, 3, 4, 4, 4, 5, 6, 7, 7, 8),
+        to = c(1, 2, 2, 5, 6, 3, 4, 4, 6, 7, 8, 6, 7, 8, 9, 9),
+        cost = c(10, 4, 3, 2, 2, 1, 2, 5, 4, 1, 3, 1, 2, 3, 2, 1)
     )
 
-    input_file <- tempfile()
-    write("10", file = input_file)
-    write("16", file = input_file, append = TRUE)
-    write.table(graph, file = input_file, append = TRUE, row.names = FALSE, col.names = FALSE)
+    nvertices = length(unique(c(graph$from, graph$to)))
+    nedges = nrow(graph)
 
-    result <- minimum_cost_perfect_matching(input_file)
+    result <- minimum_cost_perfect_matching(nvertices, nedges, graph)
 
     expect_equal(result$cost, 14)
 
