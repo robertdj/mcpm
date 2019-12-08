@@ -1,6 +1,6 @@
 Package: mcpm
 Title: Minimum Cost Perfect Matching
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Robert", family = "Dahl Jacobsen", role = c("aut", "cre"), email = "git@dahl-jacobsen.dk")
 Description: A wrapper of algorithms for Maximum Cardinality Matching and Minimum Cost Perfect 
