@@ -6,8 +6,8 @@ test_that("Minimum cost perfect matching", {
         cost = c(10, 4, 3, 2, 2, 1, 2, 5, 4, 1, 3, 1, 2, 3, 2, 1)
     )
 
-    nvertices = length(unique(c(graph$from, graph$to)))
-    nedges = nrow(graph)
+    nvertices <- length(unique(c(graph$from, graph$to)))
+    nedges <- nrow(graph)
 
     result <- minimum_cost_perfect_matching(nvertices, nedges, graph)
 
