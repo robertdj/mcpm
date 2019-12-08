@@ -1,6 +1,8 @@
 # mcpm
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/robertdj/mcpm.svg?branch=master)](https://travis-ci.org/robertdj/mcpm)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/robertdj/mcpm?branch=master&svg=true)](https://ci.appveyor.com/project/robertdj/mcpm)
 <!-- badges: end -->
 
 This R package is an interface to the C++ code from this repository:
