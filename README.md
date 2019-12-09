@@ -19,7 +19,7 @@ remotes::install_github("robertdj/mcpm")
 
 ## Example
 
-There is currently one function in the *mcpm* package, `minimum_cost_perfect_matching` operating on agraph represented as a dataframe with columns `from`, `to` and `cost`, where each row represents an edge.
+There is currently one function in the *mcpm* package, `minimum_cost_perfect_matching` operating on a graph represented as a dataframe with columns `from`, `to` and `cost`, where each row represents an edge.
 The vertices are assumed to be numbered from 0 and onwards.
 
 This example is also used in the tests and the values are from the original C++ repository:
@@ -33,14 +33,13 @@ graph <- data.frame(
 )
 ```
 
-Here the number of nodes in the graph is 10 and the number of edges is 16.
-
+Here the number of vertices in the graph is 10 and the number of edges is 16.
 The output is a list with entries `cost` (a number) and `edges` (a matrix).
 With the [zeallot package](https://github.com/r-lib/zeallot):
 
 ``` r
 library(zeallot)
-c(cost, edges) %<-% minimum_cost_perfect_matching("input.txt")
+c(cost, edges) %<-% minimum_cost_perfect_matching(10, 16, graph)
 ```
 
 The output is then
@@ -58,5 +57,5 @@ The output is then
 
 ## License
 
-The original C++ is MIT licensed, but by [using Rcpp](https://cloud.r-project.org/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf) the version in this repository has to be licensed by GPL2.
+The original C++ is MIT licensed, but [by using Rcpp](https://cloud.r-project.org/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf) the version in this repository has to be licensed by GPL2.
 
